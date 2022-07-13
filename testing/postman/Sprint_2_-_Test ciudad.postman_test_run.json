@@ -1,0 +1,301 @@
+{
+	"id": "23febe1b-0b2d-454e-8442-dcc6812fbaec",
+	"name": "Test ciudad",
+	"timestamp": "2022-06-09T14:41:02.958Z",
+	"collection_id": "18026997-5eb2c1c4-a509-4ffb-b913-d25bfe943fab",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 18,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "7bd2cc80-36fa-4c84-b735-cf1641205299",
+			"name": "Post ciudad",
+			"url": "http://localhost:8080/ciudades",
+			"time": 24,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"response time is less that 200ms": true,
+				"Data is the same": true,
+				"Response has id": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response time is less that 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Data is the same": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				24
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"response time is less that 200ms": true,
+					"Data is the same": true,
+					"Response has id": true
+				}
+			]
+		},
+		{
+			"id": "ba24ad95-0892-4a53-ae83-a7dd9d2cae80",
+			"name": "Get ciudad",
+			"url": "http://localhost:8080/ciudades/13",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"check_id": true,
+				"response time is less that 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"check_id": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response time is less that 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"check_id": true,
+					"response time is less that 200ms": true
+				}
+			]
+		},
+		{
+			"id": "1a5f7034-f73e-47c3-ba4d-edba890992ad",
+			"name": "Edit ciudad",
+			"url": "http://localhost:8080/ciudades/13",
+			"time": 16,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"check_nombre": true,
+				"response time is less that 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"check_nombre": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response time is less that 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				16
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"check_nombre": true,
+					"response time is less that 200ms": true
+				}
+			]
+		},
+		{
+			"id": "afc11a85-04dd-4897-904b-d309bce07cf8",
+			"name": "Edit ciudad without body",
+			"url": "http://localhost:8080/ciudades/1",
+			"time": 4,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"response time is less that 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response time is less that 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"response time is less that 200ms": true
+				}
+			]
+		},
+		{
+			"id": "70ee4913-4293-48d8-b909-bd2891bc9b07",
+			"name": "Delete ciudad",
+			"url": "http://localhost:8080/ciudades/13",
+			"time": 24,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"response time is less that 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response time is less that 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				24
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"response time is less that 200ms": true
+				}
+			]
+		},
+		{
+			"id": "fb767e75-4c80-4764-95cf-e699c9c247d4",
+			"name": "Get ciudad after delete",
+			"url": "http://localhost:8080/ciudades/13",
+			"time": 8,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true,
+				"response time is less that 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response time is less that 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 404": true,
+					"response time is less that 200ms": true
+				}
+			]
+		},
+		{
+			"id": "b01a0ee7-4ceb-4de4-8d1c-6abf0f176c30",
+			"name": "Delete ciudad that doesnt exists",
+			"url": "http://localhost:8080/ciudades/10000",
+			"time": 10,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true,
+				"response time is less that 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response time is less that 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status code is 404": true,
+					"response time is less that 200ms": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 95,
+	"collection": {
+		"requests": [
+			{
+				"id": "7bd2cc80-36fa-4c84-b735-cf1641205299",
+				"method": "POST"
+			},
+			{
+				"id": "ba24ad95-0892-4a53-ae83-a7dd9d2cae80",
+				"method": "GET"
+			},
+			{
+				"id": "1a5f7034-f73e-47c3-ba4d-edba890992ad",
+				"method": "PUT"
+			},
+			{
+				"id": "afc11a85-04dd-4897-904b-d309bce07cf8",
+				"method": "PUT"
+			},
+			{
+				"id": "70ee4913-4293-48d8-b909-bd2891bc9b07",
+				"method": "DELETE"
+			},
+			{
+				"id": "fb767e75-4c80-4764-95cf-e699c9c247d4",
+				"method": "GET"
+			},
+			{
+				"id": "b01a0ee7-4ceb-4de4-8d1c-6abf0f176c30",
+				"method": "DELETE"
+			}
+		]
+	}
+}

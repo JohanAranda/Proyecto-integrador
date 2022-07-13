@@ -1,0 +1,798 @@
+{
+	"info": {
+		"_postman_id": "35147789-ac5f-4aa7-a7cc-a2456ddc390c",
+		"name": "Test producto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18026997"
+	},
+	"item": [
+		{
+			"name": "Post producto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"id_Bproducto\", pm.response.json().id);\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"response time is less that 200ms\"), function () {\r",
+							"     pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"};\r",
+							"\r",
+							"pm.test(\"Data is the same\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.nombre).to.eql(\"hotel\");\r",
+							"    pm.expect(jsonData.descripcion).to.eql(\"Soy un hotel\");\r",
+							"    pm.expect(jsonData.puntuacion).to.eql(8.5);\r",
+							"    pm.expect(jsonData.ciudad.id).to.eql(1);\r",
+							"    pm.expect(jsonData.categoria.id).to.eql(1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has id\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.exist;\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"hotel\",\r\n    \"descripcion\": \"Soy un hotel\",\r\n    \"puntuacion\": 8.5,\r\n    \"ciudad\": {\r\n        \"id\": 1\r\n    },\r\n    \"categoria\":{\r\n        \"id\": 1\r\n \r\n    } \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/productos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get producto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"check_id\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.eql(pm.variables.get(\"id_Bproducto\"));\r",
+							"});\r",
+							"\r",
+							"pm.test(\"response time is less that 200ms\"), function () {\r",
+							"     pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"};"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/productos/{{id_Bproducto}}",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productos",
+						"{{id_Bproducto}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit producto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"check_nombre\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.nombre).to.eql(\"hotel editado\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"response time is less that 200ms\"), function () {\r",
+							"     pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"};"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"hotel editado\",\r\n    \"descripcion\": \"Soy un hotel\",\r\n    \"puntuacion\": 8.5,\r\n    \"ciudad\": {\r\n        \"id\": 1\r\n    },\r\n    \"categoria\":{\r\n        \"id\": 1\r\n    } \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/productos/{{id_Bproducto}}",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productos",
+						"{{id_Bproducto}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit productos without body",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"response time is less that 200ms\"), function () {\r",
+							"     pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"};"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/productos/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete producto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"response time is less that 200ms\"), function () {\r",
+							"     pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"};"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/productos/{{id_Bproducto}}",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productos",
+						"{{id_Bproducto}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get producto after delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"response time is less that 200ms\"), function () {\r",
+							"     pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"};"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/productos/{{id_Bproducto}}",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productos",
+						"{{id_Bproducto}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete producto that doesnt exists",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"response time is less that 200ms\"), function () {\r",
+							"     pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"};"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/producto/10000",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"producto",
+						"10000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post producto1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"id_Bproducto1\", pm.response.json().id);\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"response time is less that 200ms\"), function () {\r",
+							"     pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"};\r",
+							"\r",
+							"pm.test(\"Data is the same\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.nombre).to.eql(\"hotel1\");\r",
+							"    pm.expect(jsonData.descripcion).to.eql(\"Soy un hotel\");\r",
+							"    pm.expect(jsonData.puntuacion).to.eql(8.5);\r",
+							"    pm.expect(jsonData.ciudad.id).to.eql(1);\r",
+							"    pm.expect(jsonData.categoria.id).to.eql(1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has id\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.exist;\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"hotel1\",\r\n    \"descripcion\": \"Soy un hotel\",\r\n    \"puntuacion\": 8.5,\r\n    \"ciudad\": {\r\n        \"id\": 1\r\n    },\r\n    \"categoria\":{\r\n        \"id\": 1\r\n \r\n    } \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/productos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post producto2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"id_Bproducto2\", pm.response.json().id);\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"response time is less that 200ms\"), function () {\r",
+							"     pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"};\r",
+							"\r",
+							"pm.test(\"Data is the same\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.nombre).to.eql(\"hotel2\");\r",
+							"    pm.expect(jsonData.descripcion).to.eql(\"Soy un hotel\");\r",
+							"    pm.expect(jsonData.puntuacion).to.eql(8.5);\r",
+							"    pm.expect(jsonData.ciudad.id).to.eql(1);\r",
+							"    pm.expect(jsonData.categoria.id).to.eql(2);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has id\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.exist;\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"hotel2\",\r\n    \"descripcion\": \"Soy un hotel\",\r\n    \"puntuacion\": 8.5,\r\n    \"ciudad\": {\r\n        \"id\": 1\r\n    },\r\n    \"categoria\":{\r\n        \"id\": 2\r\n \r\n    } \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/productos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post producto3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"id_Bproducto3\", pm.response.json().id);\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"response time is less that 200ms\"), function () {\r",
+							"     pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"};\r",
+							"\r",
+							"pm.test(\"Data is the same\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.nombre).to.eql(\"hotel3\");\r",
+							"    pm.expect(jsonData.descripcion).to.eql(\"Soy un hotel\");\r",
+							"    pm.expect(jsonData.puntuacion).to.eql(8.5);\r",
+							"    pm.expect(jsonData.ciudad.id).to.eql(2);\r",
+							"    pm.expect(jsonData.categoria.id).to.eql(2);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has id\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.exist;\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"hotel3\",\r\n    \"descripcion\": \"Soy un hotel\",\r\n    \"puntuacion\": 8.5,\r\n    \"ciudad\": {\r\n        \"id\": 2\r\n    },\r\n    \"categoria\":{\r\n        \"id\": 2\r\n \r\n    } \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/productos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Random order",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"arrayRandom\", pm.response.json());\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"response time is less that 200ms\"), function () {\r",
+							"     pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"};\r",
+							"\r",
+							"pm.test(\"Response has id\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).not.empty;\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/productos/random",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productos",
+						"random"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Comprobe random order",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"response time is less that 200ms\"), function () {\r",
+							"     pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"};\r",
+							"\r",
+							"pm.test(\"Response not empty\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).not.empty;\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Random each request\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.not.equal(pm.variables.get(\"arrayRandom\"))\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/productos/random",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productos",
+						"random"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by Category_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"response time is less that 200ms\"), function () {\r",
+							"     pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"};\r",
+							"\r",
+							"pm.test(\"Response has id\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    for(obj of jsonData) {\r",
+							"        pm.expect(obj.categoria.id).to.equal(1)\r",
+							"    }\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/productos/categoria/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productos",
+						"categoria",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by Ciudad_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"response time is less that 200ms\"), function () {\r",
+							"     pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"};\r",
+							"\r",
+							"pm.test(\"Response has id\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    for(obj of jsonData) {\r",
+							"        pm.expect(obj.ciudad.id).to.equal(1)\r",
+							"    }\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/productos/ciudad/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productos",
+						"ciudad",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete producto1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"response time is less that 200ms\"), function () {\r",
+							"     pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"};"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/productos/{{id_Bproducto1}}",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productos",
+						"{{id_Bproducto1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete producto2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"response time is less that 200ms\"), function () {\r",
+							"     pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"};"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/productos/{{id_Bproducto2}}",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productos",
+						"{{id_Bproducto2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete producto3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"response time is less that 200ms\"), function () {\r",
+							"     pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"};"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/productos/{{id_Bproducto3}}",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productos",
+						"{{id_Bproducto3}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "id_Bcategorias",
+			"value": ""
+		},
+		{
+			"key": "id_Bciudades",
+			"value": ""
+		},
+		{
+			"key": "id_Bproducto",
+			"value": ""
+		},
+		{
+			"key": "id_producto",
+			"value": ""
+		},
+		{
+			"key": "arrayRandom",
+			"value": ""
+		},
+		{
+			"key": "id_Bproducto1",
+			"value": ""
+		},
+		{
+			"key": "id_Bproducto2",
+			"value": ""
+		},
+		{
+			"key": "id_Bproducto3",
+			"value": ""
+		}
+	]
+}

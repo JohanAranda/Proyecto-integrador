@@ -1,0 +1,321 @@
+{
+	"info": {
+		"_postman_id": "5eb2c1c4-a509-4ffb-b913-d25bfe943fab",
+		"name": "Test ciudad",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18026997"
+	},
+	"item": [
+		{
+			"name": "Post ciudad",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"id_Bciudades\", pm.response.json().id);\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"response time is less that 200ms\"), function () {\r",
+							"     pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"};\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.eql(pm.variables.get(\"id_Bciudades\"));\r",
+							"\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Buenos Aires\",\r\n    \"pais\": \"Argentina\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/ciudades",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ciudades"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get ciudad",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"check_id\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.eql(pm.variables.get(\"id_Bciudades\"));\r",
+							"});\r",
+							"\r",
+							"pm.test(\"response time is less that 200ms\"), function () {\r",
+							"     pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"};"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/ciudades/{{id_Bciudades}}",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ciudades",
+						"{{id_Bciudades}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit ciudad",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"check_nombre\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.nombre).to.eql(\"La Rioja\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"response time is less that 200ms\"), function () {\r",
+							"     pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"};"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"La Rioja\",\r\n    \"pais\": \"Argentina\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/ciudades/{{id_Bciudades}}",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ciudades",
+						"{{id_Bciudades}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit ciudad without body",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"response time is less that 200ms\"), function () {\r",
+							"     pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"};"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/ciudades/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ciudades",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete ciudad",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"response time is less that 200ms\"), function () {\r",
+							"     pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"};"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/ciudades/{{id_Bciudades}}",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ciudades",
+						"{{id_Bciudades}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get ciudad after delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"response time is less that 200ms\"), function () {\r",
+							"     pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"};"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/ciudades/{{id_Bciudades}}",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ciudades",
+						"{{id_Bciudades}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete ciudad that doesnt exists",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"response time is less that 200ms\"), function () {\r",
+							"     pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"};"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/ciudades/10000",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ciudades",
+						"10000"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "id_Bcategorias",
+			"value": ""
+		},
+		{
+			"key": "id_Bciudades",
+			"value": ""
+		},
+		{
+			"key": "id_Bproducto",
+			"value": ""
+		},
+		{
+			"key": "id_producto",
+			"value": ""
+		}
+	]
+}

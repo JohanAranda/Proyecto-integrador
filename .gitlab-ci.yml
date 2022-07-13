@@ -1,0 +1,111 @@
+variables:
+  # This will suppress any download for dependencies and plugins or upload messages which would clutter the console log.
+  # `showDateTime` will show the passed time in milliseconds. You need to specify `--batch-mode` to make this work.
+  MAVEN_OPTS: "-Dhttps.protocols=TLSv1.2 -Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true"
+  # As of Maven 3.3.0 instead of this you may define these options in `.mvn/maven.config` so the same config is used
+  # when running from the command line.
+  # `installAtEnd` and `deployAtEnd` are only effective with recent version of the corresponding plugins.
+  MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
+
+  SSH_PRIVATE_KEY: ""
+
+image: maven:latest
+
+# Cache downloaded dependencies and plugins between builds.
+# To keep cache across branches add 'key: "$CI_JOB_NAME"'
+cache:
+  paths:
+    - .m2/repository
+
+# For merge requests do not `deploy` but only run `verify`.
+# .verify: &verify
+#   stage: test
+#   script:
+#     - 'mvn $MAVEN_CLI_OPTS verify'
+#   except:
+#     variables:
+#       - $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+# Verify merge requests using Maven
+# verify:maven:
+#   <<: *verify
+
+stages:          # List of stages for jobs, and their order of execution
+  - test
+  - build_deploy
+  - mount
+
+before_script:
+  - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+  - eval $(ssh-agent -s)
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - ssh-keyscan 34.207.66.248 >> ~/.ssh/known_hosts
+  - chmod 644 ~/.ssh/known_hosts
+
+
+
+build_node:       # This job runs in the build stage, which runs first.
+  only:
+      - development
+  stage: build_deploy
+  image: node:18
+  script:
+    - cd frontend/
+    - npm install
+    - npm run build
+    - scp -r build/ ubuntu@34.207.66.248:~/frontend
+    - scp frontend.dockerfile ubuntu@34.207.66.248:~/frontend/
+
+build_maven:
+  stage: build_deploy
+  only:
+      - development
+  script:
+    - cd backend/
+    - mvn -DskipTests=true clean package
+    - scp target/*.jar ubuntu@34.207.66.248:~/backend/
+    - scp backend.dockerfile ubuntu@34.207.66.248:~/backend/
+
+deploy_docker_compose:
+  only:
+        - development
+  stage: build_deploy
+  script:
+    - scp docker-compose.yml ubuntu@34.207.66.248:~/
+
+deploy_execute:
+  only:
+        - development
+  stage: mount
+  script:
+    - ssh ubuntu@34.207.66.248 "sudo docker system prune --volumes --all --force"
+    - ssh ubuntu@34.207.66.248 "sudo docker build --rm --file=frontend/frontend.dockerfile  -t playground-web-frontend ."
+    - ssh ubuntu@34.207.66.248 "sudo docker build --rm --file=backend/backend.dockerfile  -t playground-web-backend ."
+    - ssh ubuntu@34.207.66.248 "sudo docker-compose -f docker-compose.yml up -d"
+
+
+jest_test_job:   # This job runs in the test stage.
+  stage: test    # It only starts when the job in the build stage completes successfully.
+  image: node:18
+  allow_failure: true
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
+  script:
+    - cp -r testing/__tests__ frontend/src
+    - cd frontend
+    - npm install
+    - npm run test
+
+maven_test_job:   # This job also runs in the test stage.
+  stage: test    # It can run at the same time as unit-test-job (in parallel).
+  allow_failure: true
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
+  script:
+    - cd backend
+
+
+#deploy_job:      # This job runs in the deploy stage.
+#  stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
+#  script:
+#    - echo "Maven deploy started"

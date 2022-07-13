@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900');
+@import url('https://cdn.syncfusion.com/ej2/material.css');
+:root {
+  --color-primary: #1DBEB4;
+
+  
+  --input-shadow: 0px 1px 5px 0px #00000026;
+  --button-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
+  --contrast--dark: #545776;
+  --contrast--light: #fff;
+  --loading-color: #ddd;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+border-radius: 10px;
+background: rgba(0,0,0,0.1);
+}
+::-webkit-scrollbar-thumb{
+border-radius: 10px;
+background: rgba(0,0,0,0.2);
+}
+::-webkit-scrollbar-thumb:hover{
+  background: rgba(0,0,0,0.4);
+}
+::-webkit-scrollbar-thumb:active{
+  background: rgba(0,0,0,.9);
+}
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+}
+
+* {
+  font-family: Roboto;
+  box-sizing: border-box;
+}
+button {
+  cursor: pointer;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

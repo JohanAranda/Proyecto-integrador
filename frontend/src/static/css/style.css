@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import "react-alice-carousel/lib/alice-carousel.css";
+:root {
+    --colorPrincipal: #383B58;
+    --colorSecundario: #1DBEB4;
+    --colorTerciario: #545776;
+    --colorCuarto: #F3F1ED;
+    --colorQuinto: #fff;
+    --colorSexto: #4F4F50;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+}
+
+
+/*HEADER*/
+
+header {
+    top: 0;
+    z-index: 100;
+    position: sticky;
+    background-color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0px 20px 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+/*botones- INICIAR SESIÓN/REGISTRARSE*/
+
+.botones ul {
+    list-style: none;
+    display: flex;
+    /*PODRÍA SACARLO, VER*/
+    flex-direction: column;
+}
+
+.botones ul li {
+    list-style: none;
+}
+
+.botones ul li a {
+    text-decoration: none;
+    color: var(--colorSecundario);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 10px 50px;
+    margin-left: 10px;
+}
+
+
+/*DIV- SESIÓN INICIADA*/
+
+.welcome {
+    display: flex;
+    align-items: center;
+    padding-right: 40px;
+}
+
+.name-initials {
+    margin-right: 15px;
+    background-color: var(--colorPrincipal);
+    border: solid var(--colorPrincipal);
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 20px;
+    color: var(--colorQuinto);
+}
+
+.close {
+    position: absolute;
+    font-size: 22px;
+    right: 70px;
+    top: 15px;
+    color: var(--colorTerciario)
+}
+
+.hello-name h3,
+.hello-name h4 {
+    font-size: 16px;
+}
+
+.hello-name h4 {
+    color: var(--colorSecundario);
+}
+
+
+/*FOOTER*/
+
+footer {
+    background-color: var(--colorSecundario);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 20px;
+    bottom: 0;
+}
+
+.isologotipo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: var(--colorQuinto);
+    font-size: 16px;
+}
+
+.isologotipo h4 {
+    padding-top: 5px;
+    font-size: 12px;
+}
+
+.redes-sociales ul {
+    display: none;
+}
+
+.fa-instagram,
+.fa-linkedin-in,
+.fa-twitter,
+.fa-facebook {
+    font-size: 26px;
+    color: var(--colorQuinto);
+    margin-left: 30px;
+}

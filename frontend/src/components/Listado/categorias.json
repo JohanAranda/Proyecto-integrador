@@ -1,0 +1,20 @@
+[
+    {
+        "img":"https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=327", "title":"Hoteles", "quantity":152915
+    },
+    {
+        "img": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169",
+        "title":"Hosteles",
+        "quantity":153200
+    },
+    {
+        "img": "https://images.unsplash.com/photo-1464890100898-a385f744067f?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170",
+        "title":"Departamentos",
+        "quantity":87300
+    },
+    {
+        "img": "https://images.unsplash.com/photo-1541987817603-d2b3e0fad6d0?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170",
+        "title":"Casa",
+        "quantity":1506
+    }
+]

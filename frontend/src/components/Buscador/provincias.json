@@ -1,0 +1,41 @@
+[{   "id":1,
+        "ciudad":"Buenos Aires",
+        "provincia":"Buenos Aires",
+        "pais":"Argentina"
+    },
+    {   "id":2,
+        "ciudad":"Córdoba",
+        "provincia":"Córdoba",
+        "pais":"Argentina"
+    },
+    {   "id":3,
+        "ciudad":"Rosario",
+        "provincia":"Santa Fe",
+        "pais":"Argentina"
+    },
+    {   "id":4,
+        "ciudad":"Santa Fe",
+        "provincia":"Santa Fe",
+        "pais":"Argentina"
+    },
+    {   "id":5,
+        "ciudad":"Tandil",
+        "provincia":"Buenos Aires",
+        "pais":"Argentina"
+    },
+    {   "id":6,
+        "ciudad":"San Miguel de Tucumán",
+        "provincia":"Tucumán",
+        "pais":"Argentina"
+    },
+    {   "id":7,
+        "ciudad":"La Plata",
+        "provincia":"Buenos Aires",
+        "pais":"Argentina"
+    },
+    {   "id":8,
+        "ciudad":"Mar del Plata",
+        "provincia":"Buenos Aires",
+        "pais":"Argentina"
+    }
+    ]

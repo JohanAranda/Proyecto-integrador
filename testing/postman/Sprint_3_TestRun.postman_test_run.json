@@ -1,0 +1,899 @@
+{
+	"id": "ff08435c-d236-4e0c-9113-bc91bbf4179e",
+	"name": "Sprint 3",
+	"timestamp": "2022-06-23T16:55:28.889Z",
+	"collection_id": "13972989-98e21522-652e-4ebf-a1c3-e1c1a0de51a0",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 51,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "56f7d031-be2c-4fc8-88a7-7e0f94739119",
+			"name": "Crear Usuario Común",
+			"url": "http://localhost:8080/usuarios",
+			"time": 71,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"ID is correct": true,
+				"Nombre is correct": true,
+				"Rol is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"ID is correct": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Nombre is correct": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Rol is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				71
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"ID is correct": true,
+					"Nombre is correct": true,
+					"Rol is correct": true
+				}
+			]
+		},
+		{
+			"id": "3575bf67-958f-4ae0-8b69-7194f15f941c",
+			"name": "Buscar Usuario Creado",
+			"url": "http://localhost:8080/usuarios/8",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"ID is correct": true,
+				"Nombre is correct": true,
+				"Rol is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"ID is correct": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Nombre is correct": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Rol is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"ID is correct": true,
+					"Nombre is correct": true,
+					"Rol is correct": true
+				}
+			]
+		},
+		{
+			"id": "407b1356-9b3b-478b-a37e-e77c599a3db4",
+			"name": "Loguear Usuario Admin",
+			"url": "http://localhost:8080/authenticate",
+			"time": 67,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				67
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "e457db61-4333-48c6-81b1-79d859f88286",
+			"name": "Modificar Usuario Creado",
+			"url": "http://localhost:8080/usuarios/8",
+			"time": 70,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"ID is correct": true,
+				"Nombre is correct": true,
+				"Rol is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"ID is correct": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Nombre is correct": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Rol is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				70
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"ID is correct": true,
+					"Nombre is correct": true,
+					"Rol is correct": true
+				}
+			]
+		},
+		{
+			"id": "5c0ec064-694e-453f-81d5-34360c16c9b0",
+			"name": "Eliminar Usuario Creado",
+			"url": "http://localhost:8080/usuarios/8",
+			"time": 11,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 204": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 204": true
+				}
+			]
+		},
+		{
+			"id": "f2a9e571-be19-48fb-a4ed-25cbd2c89e26",
+			"name": "Crear Categoría",
+			"url": "http://localhost:8080/categorias",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"ID is correct": true,
+				"Titulo is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"ID is correct": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Titulo is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"ID is correct": true,
+					"Titulo is correct": true
+				}
+			]
+		},
+		{
+			"id": "2f5429f8-d043-4493-bd5f-16e5d0b9f2b2",
+			"name": "Modificar Categoria",
+			"url": "http://localhost:8080/categorias",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "ddded7a8-0ed7-4239-b85d-b7aee7671607",
+			"name": "Buscar Categoria Creada",
+			"url": "http://localhost:8080/categorias/6",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Titulo is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Titulo is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Titulo is correct": true
+				}
+			]
+		},
+		{
+			"id": "21c87137-5ea8-4942-9d86-147935df3299",
+			"name": "Buscar Categorias",
+			"url": "http://localhost:8080/categorias",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "e4aad74b-221a-413d-b18d-c1c2d79fb6a5",
+			"name": "Eliminar Categoria Creada",
+			"url": "http://localhost:8080/categorias/6",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "23cd4566-dc7c-4471-afed-f6498fa329b0",
+			"name": "Crear Ciudad",
+			"url": "http://localhost:8080/ciudades",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"ID is correct": true,
+				"Nombre is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"ID is correct": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Nombre is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"ID is correct": true,
+					"Nombre is correct": true
+				}
+			]
+		},
+		{
+			"id": "c5bf7609-a669-4ac6-aacf-934d14a3334c",
+			"name": "Modificar Ciudad",
+			"url": "http://localhost:8080/ciudades/7",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"ID is correct": true,
+				"Nombre is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"ID is correct": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Nombre is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"ID is correct": true,
+					"Nombre is correct": true
+				}
+			]
+		},
+		{
+			"id": "6fd30683-0903-4360-bc21-21d85c115b9e",
+			"name": "Buscar Ciudad Creada",
+			"url": "http://localhost:8080/ciudades/7",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"ID is correct": true,
+				"Nombre is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"ID is correct": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Nombre is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"ID is correct": true,
+					"Nombre is correct": true
+				}
+			]
+		},
+		{
+			"id": "d3e40b4b-edd6-48e8-8169-bf4e2fa02dcf",
+			"name": "Buscar Ciudades",
+			"url": "http://localhost:8080/ciudades",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "80bd2806-dad1-484e-a058-fa7e98724045",
+			"name": "Eliminar Ciudad Creada",
+			"url": "http://localhost:8080/ciudades/7",
+			"time": 11,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 204": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 204": true
+				}
+			]
+		},
+		{
+			"id": "a1f5ef3a-3daf-4cca-a7ee-9107c7319f3d",
+			"name": "Buscar Productos",
+			"url": "http://localhost:8080/productos",
+			"time": 55,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				55
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "26a7d092-c17e-4228-a2f4-c603a1d0770d",
+			"name": "Buscar Productos Aleatorios",
+			"url": "http://localhost:8080/productos/random",
+			"time": 23,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				23
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "433aaaff-e607-4f19-ac74-ee9d2208af9e",
+			"name": "Modificar Producto",
+			"url": "http://localhost:8080/productos/33",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"ID is correct": true,
+				"Descripcion is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"ID is correct": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Descripcion is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"ID is correct": true,
+					"Descripcion is correct": true
+				}
+			]
+		},
+		{
+			"id": "d439cf9f-6669-448a-b5ac-fba774f15899",
+			"name": "Crear Reserva",
+			"url": "http://localhost:8080/reservas",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"ID is correct": true,
+				"Producto ID is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"ID is correct": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto ID is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"ID is correct": true,
+					"Producto ID is correct": true
+				}
+			]
+		},
+		{
+			"id": "3fe945a0-ef3a-4d4f-be53-a3748016b0d4",
+			"name": "Modificar Reserva",
+			"url": "http://localhost:8080/reservas/3",
+			"time": 13,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"ID is correct": true,
+				"Producto ID is correct": true,
+				"Hora is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"ID is correct": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto ID is correct": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Hora is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"ID is correct": true,
+					"Producto ID is correct": true,
+					"Hora is correct": true
+				}
+			]
+		},
+		{
+			"id": "8bc19a08-caa1-45a1-a859-3372e0b50111",
+			"name": "Buscar Reserva Creada",
+			"url": "http://localhost:8080/reservas/3",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"ID is correct": true,
+				"Producto ID is correct": true,
+				"Hora is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"ID is correct": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto ID is correct": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Hora is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"ID is correct": true,
+					"Producto ID is correct": true,
+					"Hora is correct": true
+				}
+			]
+		},
+		{
+			"id": "6dfa7338-95ba-4b0a-a221-e13311555ad7",
+			"name": "Buscar Reservas",
+			"url": "http://localhost:8080/reservas",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "50158a90-f9c4-4694-834b-ef37c1918b01",
+			"name": "Eliminar Reserva Creada",
+			"url": "http://localhost:8080/reservas/3",
+			"time": 10,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 204": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status code is 204": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 464,
+	"collection": {
+		"requests": [
+			{
+				"id": "56f7d031-be2c-4fc8-88a7-7e0f94739119",
+				"method": "POST"
+			},
+			{
+				"id": "3575bf67-958f-4ae0-8b69-7194f15f941c",
+				"method": "GET"
+			},
+			{
+				"id": "407b1356-9b3b-478b-a37e-e77c599a3db4",
+				"method": "POST"
+			},
+			{
+				"id": "e457db61-4333-48c6-81b1-79d859f88286",
+				"method": "PUT"
+			},
+			{
+				"id": "5c0ec064-694e-453f-81d5-34360c16c9b0",
+				"method": "DELETE"
+			},
+			{
+				"id": "f2a9e571-be19-48fb-a4ed-25cbd2c89e26",
+				"method": "POST"
+			},
+			{
+				"id": "2f5429f8-d043-4493-bd5f-16e5d0b9f2b2",
+				"method": "PUT"
+			},
+			{
+				"id": "ddded7a8-0ed7-4239-b85d-b7aee7671607",
+				"method": "GET"
+			},
+			{
+				"id": "21c87137-5ea8-4942-9d86-147935df3299",
+				"method": "GET"
+			},
+			{
+				"id": "e4aad74b-221a-413d-b18d-c1c2d79fb6a5",
+				"method": "DELETE"
+			},
+			{
+				"id": "23cd4566-dc7c-4471-afed-f6498fa329b0",
+				"method": "POST"
+			},
+			{
+				"id": "c5bf7609-a669-4ac6-aacf-934d14a3334c",
+				"method": "PUT"
+			},
+			{
+				"id": "6fd30683-0903-4360-bc21-21d85c115b9e",
+				"method": "GET"
+			},
+			{
+				"id": "d3e40b4b-edd6-48e8-8169-bf4e2fa02dcf",
+				"method": "GET"
+			},
+			{
+				"id": "80bd2806-dad1-484e-a058-fa7e98724045",
+				"method": "DELETE"
+			},
+			{
+				"id": "a1f5ef3a-3daf-4cca-a7ee-9107c7319f3d",
+				"method": "GET"
+			},
+			{
+				"id": "26a7d092-c17e-4228-a2f4-c603a1d0770d",
+				"method": "GET"
+			},
+			{
+				"id": "433aaaff-e607-4f19-ac74-ee9d2208af9e",
+				"method": "PUT"
+			},
+			{
+				"id": "d439cf9f-6669-448a-b5ac-fba774f15899",
+				"method": "POST"
+			},
+			{
+				"id": "3fe945a0-ef3a-4d4f-be53-a3748016b0d4",
+				"method": "PUT"
+			},
+			{
+				"id": "8bc19a08-caa1-45a1-a859-3372e0b50111",
+				"method": "GET"
+			},
+			{
+				"id": "6dfa7338-95ba-4b0a-a221-e13311555ad7",
+				"method": "GET"
+			},
+			{
+				"id": "50158a90-f9c4-4694-834b-ef37c1918b01",
+				"method": "DELETE"
+			}
+		]
+	}
+}
